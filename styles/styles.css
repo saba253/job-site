@@ -10,13 +10,12 @@
 }
 
 body{
-    width: 90%;
+    width: 80%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
-#active{
-    color: black;
+.active{
     font-weight:bold ;
 }
 .nav-div{
