@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+/* Basic Classes */
+.display-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body{
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#active{
+    color: black;
+    font-weight:bold ;
+}
+.nav-div{
+    margin-top: .5em;
+}
+.nav-list ul li{
+    list-style-type: none;
+    display: inline;
+}
+.nav-list a{
+    text-decoration: none;
+    color:rgb(78, 78, 78);
+    margin-right: 2em;
+    font-size: 14px;
+}
+
+.nav-registration .login{
+    border: 0;
+    background:none;
+}
+.nav-registration .signup{
+    padding: 10px;
+    border-radius: 28px;
+    background-color: rgb(78, 78, 78);
+    border-color: rgb(255, 253, 253,0);
+    font-size: 15px;
+}
+.nav-registration .signup a{
+    color: white;
+}
+.nav-registration a{
+    color:rgb(78, 78, 78);
+    text-decoration: none;
+}
