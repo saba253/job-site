@@ -66,13 +66,14 @@ body{
 }
 
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
+    margin-top: 1.5em;
   }
   
   .login-submit {
@@ -82,8 +83,8 @@ input[type=text], input[type=password] {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-    border-radius: 10px;
+    width: 20%;
+    border-radius: 18px;
   }
   
   button:hover {
