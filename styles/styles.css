@@ -33,25 +33,6 @@ body{
     margin-right: 1em;
     font-size: 14px;
 }
-
-.nav-registration .login{
-    border: 0;
-    background:none;
-}
-.nav-registration .signup{
-    padding: 10px;
-    border-radius: 28px;
-    background-color: #2D7989;
-    border:none;
-    font-size: 15px;
-}
-.nav-registration .signup a{
-    color: white;
-}
-.nav-registration a{
-    color:rgb(78, 78, 78);
-    text-decoration: none;
-}
 /* Nav Css end */
 
 /* Main Css */
