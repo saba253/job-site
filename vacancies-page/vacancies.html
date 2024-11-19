@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../vacancies-page/vacancies.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Job Site</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-div display-flex">
+            <div class="logo-div">
+                <h1>logo</h1>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li>
+                        <a href="../index.html" >
+                            მთავარი
+                        </a>
+                    </li>
+                    <li>
+                        <a href="vacancies-page/vacancies.html" class="active">
+                            განცხადებები
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../upload-page/upload.html">
+                            გამოქვეყნება
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            კონტაქტი
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div>
+            <div class="search-container">
+                <div class="main-search">
+                    <form action="#">
+                        <input type="text" placeholder="მაგ: ინტერიერის დიზაინერი" name="search">
+                        <button type="submit"><i class="fa fa-search">ძიება</i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="vacancies-container">
+            <!-- <div class="vacancies-header">
+                <h4>ვაკანსიის დასახელება</h4>
+                <h4>კომპანია</h4>
+                <h4>ვაკანტური ადგილი</h4>
+            </div>
+            <a href="#">
+                <div class="vacancies-name">
+                <h5 id="jobName"></h5>
+                <p><span id="displayName"></span></p>
+                <p><span id="displayNumber"></span></p>
+            </div>
+            </a> -->
+            <table>
+                <tbody>
+                    <tr>
+                        <th>ვაკანსიის დასახელება</th>
+                        <th>კომპანია</th>
+                        <th>ვაკანტური ადგილები</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p id="jobName"></p>
+                        </td>
+                        <td>
+                            <p><span id="displayName"></span></p>
+                        </td>
+                        <td>
+                            <p><span id="displayNumber"></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+                
+
+            </table>
+        </div>
+    </main>
+    <script src="./vacancies.js"></script>
+</body>
+</html>

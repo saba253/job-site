@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+/* Basic Classes */
+.display-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+body{
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.active{
+    font-weight:bold ;
+}
+/* Nav Css */
+.nav-div{
+    margin-top: 1em;
+    position: relative;
+}
+.nav-list ul li{
+    list-style-type: none;
+    display: inline;
+}
+.nav-list a{
+    text-decoration: none;
+    color:rgb(78, 78, 78);
+    margin-right: 1em;
+    font-size: 14px;
+}
+/* Nav Css end */
+.search-container{
+    margin-top: 2em;
+}
+input{
+    width: 15em;
+    /* margin:3em 0 3em 0; */
+    height: 2em;
+    border-radius: 18px;
+    border: 1px solid ;
+}
+.search-container button{
+    padding: 5px;
+    border-radius: 28px;
+    border: none;
+    font-size: 13px;
+    background-color:  #2D7989;
+    color:white;
+    cursor: pointer;
+}
+table{
+    width: 100%;
+    text-align: center;
+    margin-top: 2em;
+    border-bottom: 1px solid grey;
+}
+th{
+    color: rgb(78, 78, 78);
+}
+td{
+    font-size: 13px;
+    color:  #2D7989;
+}

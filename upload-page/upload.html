@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Job Site</title>
+    <link rel="stylesheet" href="../upload-page/upload.css">
+    <title>Form Data</title>
 </head>
 <body>
     <nav>
@@ -16,17 +15,17 @@
             <div class="nav-list">
                 <ul>
                     <li>
-                        <a class="active" href="./index.html" >
+                        <a href="../index.html" >
                             მთავარი
                         </a>
                     </li>
                     <li>
-                        <a href="vacancies-page/vacancies.html">
+                        <a href="../vacancies-page/vacancies.html">
                             განცხადებები
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="../upload-page/upload.html" class="active">
                             გამოქვეყნება
                         </a>
                     </li>
@@ -40,19 +39,22 @@
         </div>
     </nav>
     <main>
-        <div class="main-container">
-            <div class="main-header">
-                <h1>ვაკანსიების თანამედროვე ძიება</h1>
-                <div class="main-search">
-                    <form action="#">
-                        <input type="text" placeholder="მაგ: ინტერიერის დიზაინერი" name="search">
-                        <button type="submit"><i class="fa fa-search">ძიება</i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <img src="./media/main-pic/9519388.svg" alt="">
-        </div>
+        <h3>ვაკანსიის ფორმა</h3>
+    <form id="myForm">
+        <label for="jobName">ვაკანსიის დასახელება</label>
+        <input type="text" name="jobName" id="jobName" required><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="number">ვაკანტური ადგილების რაოდენობა</label>
+        <input type="number" id="number" name="number" required><br><br>
+        
+        <button type="submit">ატვირთვა</button>
+    </form>
+
     </main>
+    
+    <script src="./upload.js"></script>
 </body>
 </html>
