@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link rel="stylesheet" href="./job-details.css"> <!-- Link to your main CSS -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-div display-flex">
+            <div class="logo-div">
+                <h1>Job Site</h1>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li><a href="../index.html">მთავარი</a></li>
+                    <li><a href="../vacancies-page/vacancies.html">განცხადებები</a></li>
+                    <li><a href="../upload-page/upload.html">გამოქვეყნება</a></li>
+                    <li><a href="#">კონტაქტი</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Job Details Section -->
+    <main class="job-details-container">
+        <h2 id="jobTitle"></h2>
+        <p><strong>კომპანია:</strong> <span id="companyName"></span></p>
+        <p><strong>ხელფასი:</strong> <span id="salaryAmount"></span></p>
+        <p><strong>ვაკანტური ადგილები:</strong> <span id="vacancyCount"></span></p>
+        <p><strong>აღწერა:</strong> <span id="jobDescription"></span></p>
+        <a href="vacancies.html" class="back-link">← დაბრუნება</a>
+    </main>
+
+    <script src="./job-details.js"></script>
+</body>
+</html>

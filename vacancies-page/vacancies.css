@@ -1,68 +1,134 @@
-*{
+/* General Reset */
+* {
     box-sizing: border-box;
     margin: 0;
 }
+
 /* Basic Classes */
-.display-flex{
+.display-flex {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Adjusted for better spacing */
     align-items: center;
+    padding: 0 20px; /* Added padding for better layout */
 }
 
-body{
-    width: 80%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+/* Navigation Bar */
+.nav-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto; /* Centers the navbar */
 }
-.active{
-    font-weight:bold ;
+
+/* Navigation List */
+.nav-list ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-/* Nav Css */
-.nav-div{
-    margin-top: 1em;
-    position: relative;
-}
-.nav-list ul li{
-    list-style-type: none;
-    display: inline;
-}
-.nav-list a{
+
+/* Navigation Links */
+.nav-list a {
     text-decoration: none;
-    color:rgb(78, 78, 78);
-    margin-right: 1em;
+    color: rgb(78, 78, 78);
     font-size: 14px;
+    padding: 8px 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-list a:hover {
+    color: #2D7989;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding-top: 70px; /* Adjust based on navbar height */
+    display: flex;
+    flex-direction: column; /* Ensures proper stacking */
+    min-height: 100vh; /* Allows scrolling if content is longer */
 }
 /* Nav Css end */
-.search-container{
-    margin-top: 2em;
+/* Search Container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
-input{
-    width: 15em;
-    /* margin:3em 0 3em 0; */
-    height: 2em;
-    border-radius: 18px;
-    border: 1px solid ;
-}
-.search-container button{
-    padding: 5px;
-    border-radius: 28px;
+
+/* Search Input */
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
     border: none;
-    font-size: 13px;
-    background-color:  #2D7989;
-    color:white;
-    cursor: pointer;
+    border-radius: 30px;
+    outline: none;
+    text-indent: 10px;
 }
-table{
+
+/* Search Button */
+#searchButton {
+    padding: 12px 20px;
+    border: none;
+    background-color: #2D7989;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #1f5a66;
+}
+
+/* Table Styling */
+table {
     width: 100%;
     text-align: center;
     margin-top: 2em;
-    border-bottom: 1px solid grey;
+    border-collapse: collapse; 
 }
-th{
-    color: rgb(78, 78, 78);
+
+th, td {
+    padding: 12px;
+    text-align: center;
 }
-td{
-    font-size: 13px;
-    color:  #2D7989;
+
+td {
+    font-size: 14px;
+    color: #2D7989;
+}
+
+.salary {
+    font-weight: bold;
+    color: #2D7989;
+}
+
+/* Improve Table Visibility */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+tbody tr:hover {
+    background-color: #f1f1f1; 
 }

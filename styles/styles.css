@@ -1,39 +1,66 @@
-*{
+/* General Reset */
+* {
     box-sizing: border-box;
     margin: 0;
 }
+
 /* Basic Classes */
-.display-flex{
+.display-flex {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Adjusted for better spacing */
     align-items: center;
+    padding: 0 20px; /* Added padding for better layout */
 }
 
-body{
-    width: 80%;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+/* Navigation Bar */
+.nav-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto; /* Centers the navbar */
 }
-.active{
-    font-weight:bold ;
+
+/* Navigation List */
+.nav-list ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-/* Nav Css */
-.nav-div{
-    margin-top: 1em;
-    position: relative;
-}
-.nav-list ul li{
-    list-style-type: none;
-    display: inline;
-}
-.nav-list a{
+
+/* Navigation Links */
+.nav-list a {
     text-decoration: none;
-    color:rgb(78, 78, 78);
-    margin-right: 1em;
+    color: rgb(78, 78, 78);
     font-size: 14px;
+    padding: 8px 12px;
+    transition: 0.3s ease-in-out;
 }
-/* Nav Css end */
+
+.nav-list a:hover {
+    color: #2D7989;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensures everything stacks correctly */
+    height: 100vh;
+    padding-top: 60px; /* Prevents navbar overlap */
+    margin: 0;
+}
 
 /* Main Css */
 .main-container{

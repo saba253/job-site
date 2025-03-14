@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="vacancies-page/vacancies.html" class="active">
+                        <a href="vacancies-page/vacancies.html">
                             განცხადებები
                         </a>
                     </li>
@@ -42,28 +42,12 @@
     <main>
         <div>
             <div class="search-container">
-                <div class="main-search">
-                    <form action="#">
-                        <input type="text" placeholder="მაგ: ინტერიერის დიზაინერი" name="search">
-                        <button type="submit"><i class="fa fa-search">ძიება</i>
-                        </button>
-                    </form>
-                </div>
+                <input type="text" id="searchInput" placeholder="🔍 ვაკანსიის ძიება...">
+                <button id="searchButton">ძიება</button>
+            </div>
             </div>
         </div>
         <div class="vacancies-container">
-            <!-- <div class="vacancies-header">
-                <h4>ვაკანსიის დასახელება</h4>
-                <h4>კომპანია</h4>
-                <h4>ვაკანტური ადგილი</h4>
-            </div>
-            <a href="#">
-                <div class="vacancies-name">
-                <h5 id="jobName"></h5>
-                <p><span id="displayName"></span></p>
-                <p><span id="displayNumber"></span></p>
-            </div>
-            </a> -->
             <table>
                 <tbody>
                     <tr>
@@ -71,20 +55,9 @@
                         <th>კომპანია</th>
                         <th>ვაკანტური ადგილები</th>
                     </tr>
-                    <tr>
-                        <td>
-                            <p id="jobName"></p>
-                        </td>
-                        <td>
-                            <p><span id="displayName"></span></p>
-                        </td>
-                        <td>
-                            <p><span id="displayNumber"></span></p>
-                        </td>
-                    </tr>
                 </tbody>
-                
-
+            </table>
+            </table>
             </table>
         </div>
     </main>
