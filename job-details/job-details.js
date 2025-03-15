@@ -1,19 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
-    const jobIndex = urlParams.get("index");
+    const index = urlParams.get("index");
+
+    if (index === null) {
+        console.error("No job index found in URL.");
+        return;
+    }
 
     const vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
 
-    if (jobIndex !== null && vacancies[jobIndex]) {
-        const job = vacancies[jobIndex];
-
-        document.getElementById("jobTitle").textContent = job.jobName;
-        document.getElementById("companyName").textContent = job.name;
-        document.getElementById("vacancyCount").textContent = job.number;
-
-        // Example Description (Modify to allow input from upload form if needed)
-        document.getElementById("jobDescription").textContent = "This is a placeholder job description. Add details for this position here.";
-    } else {
-        document.body.innerHTML = "<h2>Job not found</h2><a href='vacancies.html'>Back to Vacancies</a>";
+    if (index >= vacancies.length || index < 0) {
+        console.error("Invalid job index.");
+        return;
     }
+
+    const job = vacancies[index];
+
+    document.getElementById("jobTitle").textContent = job.jobName;
+    document.getElementById("companyName").textContent = job.name;
+    document.getElementById("jobDescription").textContent = job.description;
+    document.getElementById("salary").textContent = job.salary;
+    document.getElementById("vacancyCount").textContent = job.number;
+    document.getElementById("uploadDate").textContent = job.uploadDate;
+    document.getElementById("expirationDate").textContent = job.expirationDate;
 });

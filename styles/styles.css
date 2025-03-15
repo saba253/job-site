@@ -2,14 +2,15 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 /* Basic Classes */
 .display-flex {
     display: flex;
-    justify-content: space-between; /* Adjusted for better spacing */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Added padding for better layout */
+    padding: 0 20px;
 }
 
 /* Navigation Bar */
@@ -19,13 +20,12 @@
     left: 0;
     width: 100%;
     background-color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto; /* Centers the navbar */
 }
 
 /* Navigation List */
@@ -33,11 +33,8 @@
     display: flex;
     gap: 15px;
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-/* Navigation Links */
 .nav-list a {
     text-decoration: none;
     color: rgb(78, 78, 78);
@@ -50,50 +47,111 @@
     color: #2D7989;
 }
 
+/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Ensures everything stacks correctly */
+    flex-direction: column;
     height: 100vh;
-    padding-top: 60px; /* Prevents navbar overlap */
-    margin: 0;
+    padding-top: 70px;
 }
 
-/* Main Css */
-.main-container{
+/* Main Section */
+.main-container {
     margin-top: 5em;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 1000%;
+    max-width: 1200px;
 }
-.main-container img{
+
+.main-container img {
     width: 30em;
+    max-width: 100%;
 }
-.main-header{
+
+.main-header {
     width: 50%;
+    text-align: center;
 }
-.main-header h1{
-    font-size:44px
+
+.main-header h1 {
+    font-size: 44px;
+    color: #2D7989;
 }
-.main-search{
-    margin-top: 5em;
+
+/* Search Bar */
+.search-container {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-.main-search input[type=text]{
-    padding: 15px;
-    border-radius: 40px;
-    width: 20em;
-    font-size: 17px;
-    border: none;
-}
-.main-search button{
-    padding: 15px;
-    border-radius: 28px;
-    border: none;
+
+.search-container input {
+    padding: 12px;
+    width: 280px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
     font-size: 16px;
-    background-color:  #2D7989;
-    color:white;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-container input:focus {
+    border-color: #2D7989;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(45, 121, 137, 0.2);
+}
+
+.search-container button {
+    padding: 12px 18px;
+    background-color: #2D7989;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.search-container button:hover {
+    background-color: #1f5a66;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-header {
+        width: 90%;
+    }
+
+    .main-container img {
+        width: 70%;
+        margin-top: 20px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-container input {
+        width: 80%;
+    }
+
+    .search-container button {
+        width: 60%;
+    }
 }

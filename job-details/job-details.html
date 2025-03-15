@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details</title>
-    <link rel="stylesheet" href="./"> <!-- Link your CSS -->
+    <link rel="stylesheet" href="./job-details.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <div class="nav-div display-flex">
-            <h1>Job Details</h1>
-            <a href="vacancies.html">Back to Vacancies</a>
+            <div class="logo-div">
+                <h1>Job Site</h1>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li><a href="../index.html">მთავარი</a></li>
+                    <li><a href="../vacancies-page/vacancies.html">განცხადებები</a></li>
+                    <li><a href="../upload-page/upload.html">გამოქვეყნება</a></li>
+                    <li><a href="#">კონტაქტი</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <main>
-        <div class="job-details-container">
-            <h2 id="jobTitle"></h2>
-            <p><strong>Company:</strong> <span id="companyName"></span></p>
-            <p><strong>Available Positions:</strong> <span id="vacancyCount"></span></p>
-            <p><strong>Description:</strong> <span id="jobDescription"></span></p>
-        </div>
+    <!-- Job Details Section -->
+    <main class="job-details-container">
+        <h2 id="jobTitle"></h2>
+        <p><strong>კომპანია:</strong> <span id="companyName"></span></p>
+        <p><strong>ხელფასი:</strong> <span id="salaryAmount"></span></p>
+        <p><strong>ვაკანტური ადგილები:</strong> <span id="vacancyCount"></span></p>
+        <p><strong>აღწერა:</strong> <span id="jobDescription"></span></p>
+        <p>გამოქვეყნების თარიღი: <span id="uploadDate"></span></p>
+        <p>ვადის გასვლის თარიღი: <span id="expirationDate"></span></p>
+        <a href="../vacancies-page/vacancies.html" class="back-link">← დაბრუნება</a>
+        <p style="font-size: 10px;">გამოქვეყნების თარიღი: <span id="uploadDate"></span></p>
+        <p style="font-size: 10px;">ვადის გასვლის თარიღი: <span id="expirationDate"></span></p>
     </main>
 
-    <script src="job-details.js"></script> <!-- Link JavaScript -->
+    <script src="./job-details.js"></script>
 </body>
 </html>

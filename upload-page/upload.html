@@ -39,35 +39,40 @@
         </div>
     </nav>
     <main>
-        <h3>ვაკანსიის ფორმა</h3>
+        <h3>📝 ვაკანსიის დამატება</h3>
         <form id="myForm">
-            <div class="form-group">
-                <label for="jobName">ვაკანსიის დასახელება</label>
-                <input type="text" name="jobName" id="jobName" required>
+            <label for="jobName">ვაკანსიის დასახელება:</label>
+            <input type="text" id="jobName" required>
+        
+            <label for="name">კომპანიის სახელი:</label>
+            <input type="text" id="name" required>
+        
+            <label for="description">აღწერა:</label>
+            <textarea id="description" required></textarea>
+        
+            <label for="salary">ხელფასი (₾):</label>
+            <input type="number" id="salary" required>
+        
+            <!-- Location Dropdown -->
+            <label for="location">ლოკაცია:</label>
+            <select id="location" required>
+                <option value="">აირჩიეთ ლოკაცია</option>
+                <option value="თბილისი">თბილისი</option>
+                <option value="ბათუმი">ბათუმი</option>
+                <option value="ქუთაისი">ქუთაისი</option>
+            </select>
+        
+            <!-- Show upload & expiration dates -->
+            <div class="date-container">
+                <p>📅 <strong>გამოქვეყნების თარიღი:</strong> <span id="uploadDateDisplay"></span></p>
+                <p>⏳ <strong>ვადის გასვლის თარიღი:</strong> <span id="expirationDateDisplay"></span></p>
             </div>
-    
-            <div class="form-group">
-                <label for="name">კომპანიის სახელი</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="number">ვაკანტური ადგილების რაოდენობა</label>
-                <input type="number" id="number" name="number" required>
-            </div>
-            <div class="form-group">
-                <label for="salary">ხელფასი (თვეში ₾)</label>
-                <input type="number" id="salary" name="salary" placeholder="მაგ: 2500" required>
-            </div>
-            <div class="form-group">
-                <label for="description">ვაკანსიის აღწერა</label>
-                <textarea id="description" name="description" rows="4" placeholder="დაამატეთ დეტალები ვაკანსიის შესახებ"></textarea>
-            </div>
-            
-            <button type="submit">ატვირთვა</button>
+        
+            <!-- ✅ Submit Button Inside the Form -->
+            <button type="submit">გამოქვეყნება</button>
         </form>
     </main>
     
-    <script src="./upload.js"></script>
+    <script src="./upload.js" defer></script>
 </body>
 </html>

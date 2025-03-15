@@ -21,7 +21,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="vacancies-page/vacancies.html">
+                        <a href="./vacancies.html">
                             განცხადებები
                         </a>
                     </li>
@@ -43,21 +43,42 @@
         <div>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="🔍 ვაკანსიის ძიება...">
-                <button id="searchButton">ძიება</button>
-            </div>
+                <button id="searchButton">ძებნა</button>
+            
+                <!-- Advanced Search Toggle Button -->
+                <button id="toggleAdvancedSearch">დეტალური ძებნა</button>
+            
+                <!-- Advanced Search Filters (Hidden by Default) -->
+                <div id="advancedSearch" style="display: none;">
+                    <input type="number" id="minSalary" placeholder="მინ. ხელფასი">
+                    <input type="number" id="maxSalary" placeholder="მაქს. ხელფასი">
+            
+                    <select id="locationFilter">
+                        <option value="">ყველა ლოკაცია</option>
+                        <option value="თბილისი">თბილისი</option>
+                        <option value="ბათუმი">ბათუმი</option>
+                        <option value="ქუთაისი">ქუთაისი</option>
+                    </select>
+            
+                    <button id="filterButton">გაფილტვრა</button>
+                </div>
             </div>
         </div>
         <div class="vacancies-container">
             <table>
-                <tbody>
+                <thead>
                     <tr>
                         <th>ვაკანსიის დასახელება</th>
                         <th>კომპანია</th>
-                        <th>ვაკანტური ადგილები</th>
+                        <th>ხელფასი (₾)</th>
+                        <th>📅 გამოქვეყნების თარიღი</th>
+                        <th>⏳ ვადის გასვლის თარიღი</th>
+                        <th>📍 ლოკაცია</th>
                     </tr>
+                </thead>
+                <tbody>
+
                 </tbody>
-            </table>
-            </table>
             </table>
         </div>
     </main>

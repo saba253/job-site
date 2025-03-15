@@ -1,7 +1,68 @@
-/* Style Job Links */
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Basic Classes */
+.display-flex {
+    display: flex;
+    justify-content: space-between; /* Adjusted for better spacing */
+    align-items: center;
+    padding: 0 20px; /* Added padding for better layout */
+}
+
+/* Navigation Bar */
+.nav-div {
+    position: fixed; /* Keeps it at the top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white; /* Ensures visibility */
+    padding: 10px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds a slight shadow */
+    z-index: 1000; /* Ensures it stays above other content */
+    display: flex;
+    justify-content: space-between; /* Keeps logo and menu aligned */
+    align-items: center;
+}
+
+/* Navigation List */
+.nav-list ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation Links */
+.nav-list a {
+    text-decoration: none;
+    color: rgb(78, 78, 78);
+    font-size: 14px;
+    padding: 8px 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-list a:hover {
+    color: #2D7989;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 60px; /* Adjust based on navbar height */
+
+}
 .job-link {
     color: #2D7989;
-    text-decoration: none;
+    /* text-decoration: none; */
     font-weight: bold;
 }
 

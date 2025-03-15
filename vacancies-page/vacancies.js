@@ -1,115 +1,86 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
     const vacanciesTable = document.querySelector("tbody");
+    const searchInput = document.getElementById("searchInput");
+    const minSalaryInput = document.getElementById("minSalary");
+    const maxSalaryInput = document.getElementById("maxSalary");
+    const locationFilter = document.getElementById("locationFilter");
+    const searchButton = document.getElementById("searchButton");
+    const filterButton = document.getElementById("filterButton");
+    const toggleAdvancedSearch = document.getElementById("toggleAdvancedSearch");
+    const advancedSearchDiv = document.getElementById("advancedSearch");
 
-    if (vacancies.length === 0) {
-        console.log("No job data found in localStorage");
+    if (!vacanciesTable || !searchInput || !searchButton || !filterButton || !toggleAdvancedSearch) {
+        console.error("❌ Required elements not found in vacancies.html");
         return;
     }
 
-    // Populate the vacancies table
-    vacanciesTable.innerHTML = `
-        <tr>
-            <th>ვაკანსიის დასახელება</th>
-            <th>კომპანია</th>
-            <th>ხელფასი (₾)</th>
-            <th>ვაკანტური ადგილები</th>
-        </tr>
-    `;
+    let vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
 
-    vacancies.forEach((vacancy, index) => {
-        const row = document.createElement("tr");
+    // Retrieve the search query from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get("search")?.toLowerCase().trim() || "";
 
-        row.innerHTML = `
-            <td><a href="job-details.html?index=${index}" class="job-link">${vacancy.jobName}</a></td>
-            <td>${vacancy.name}</td>
-            <td>${vacancy.salary} ₾</td>
-            <td>${vacancy.number}</td>
-        `;
+    // Set the search query in the input field
+    searchInput.value = searchQuery;
 
-        vacanciesTable.appendChild(row);
-    });
-
-    // --- SEARCH FUNCTIONALITY --- //
-    const searchInput = document.getElementById("searchInput");
-    const searchButton = document.getElementById("searchButton");
-
-    function filterVacancies() {
+    function filterVacancies(applyFilters = false) {
         const searchText = searchInput.value.toLowerCase().trim();
-        const rows = vacanciesTable.querySelectorAll("tr:not(:first-child)"); // Exclude header row
+        const minSalary = parseFloat(minSalaryInput.value) || 0;
+        const maxSalary = parseFloat(maxSalaryInput.value) || Infinity;
+        const selectedLocation = locationFilter.value.toLowerCase().trim();
 
-        rows.forEach(row => {
-            const jobTitle = row.cells[0].textContent.toLowerCase();
-            const companyName = row.cells[1].textContent.toLowerCase();
+        vacanciesTable.innerHTML = ""; // Clear table before adding rows
 
-            if (jobTitle.includes(searchText) || companyName.includes(searchText)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
+        vacancies.forEach((vacancy, index) => {
+            const jobTitle = vacancy.jobName?.toLowerCase() || "";
+            const companyName = vacancy.name?.toLowerCase() || "";
+            const salary = parseFloat(vacancy.salary?.replace("₾", "").trim()) || 0;
+            const location = vacancy.location?.toLowerCase() || "";
+
+            // Search Query Check (always applies)
+            if (searchText && !jobTitle.includes(searchText) && !companyName.includes(searchText)) return;
+
+            // Apply salary & location filters **only when "Filter" button is clicked**
+            if (applyFilters) {
+                if (salary < minSalary || salary > maxSalary) return;
+                if (selectedLocation && location !== selectedLocation) return;
             }
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td><a href="../job-details/job-details.html?index=${index}" class="job-link">${vacancy.jobName || "Unknown Job"}</a></td>
+                <td>${vacancy.name || "Unknown Company"}</td>
+                <td>${vacancy.salary ? vacancy.salary + " ₾" : "N/A"}</td>
+                <td>${vacancy.uploadDate || "N/A"}</td>
+                <td>${vacancy.expirationDate || "N/A"}</td>
+                <td>${vacancy.location || "N/A"}</td>
+            `;
+
+            vacanciesTable.appendChild(row);
         });
     }
 
-    // Search on button click
-    searchButton.addEventListener("click", filterVacancies);
+    // Run search on page load if there is a query
+    filterVacancies();
 
-    // Real-time search as user types
-    searchInput.addEventListener("input", filterVacancies);
-});document.addEventListener("DOMContentLoaded", function () {
-        const vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
-        const vacanciesTable = document.querySelector("tbody");
-    
-        if (vacancies.length === 0) {
-            console.log("No job data found in localStorage");
-            return;
-        }
-    
-        // Populate the vacancies table
-        vacanciesTable.innerHTML = `
-            <tr>
-                <th>ვაკანსიის დასახელება</th>
-                <th>კომპანია</th>
-                <th>ხელფასი (₾)</th>
-                <th>ვაკანტური ადგილები</th>
-            </tr>
-        `;
-    
-        vacancies.forEach((vacancy, index) => {
-            const row = document.createElement("tr");
-    
-            row.innerHTML = `
-                <td><a href="job-details.html?index=${index}" class="job-link">${vacancy.jobName}</a></td>
-                <td>${vacancy.name}</td>
-                <td>${vacancy.salary} ₾</td>
-                <td>${vacancy.number}</td>
-            `;
-    
-            vacanciesTable.appendChild(row);
-        });
-    
-        // --- SEARCH FUNCTIONALITY --- //
-        const searchInput = document.getElementById("searchInput");
-        const searchButton = document.getElementById("searchButton");
-    
-        function filterVacancies() {
-            const searchText = searchInput.value.toLowerCase().trim();
-            const rows = vacanciesTable.querySelectorAll("tr:not(:first-child)"); // Exclude header row
-    
-            rows.forEach(row => {
-                const jobTitle = row.cells[0].textContent.toLowerCase();
-                const companyName = row.cells[1].textContent.toLowerCase();
-    
-                if (jobTitle.includes(searchText) || companyName.includes(searchText)) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        }
-    
-        // Search on button click
-        searchButton.addEventListener("click", filterVacancies);
-    
-        // Real-time search as user types
-        searchInput.addEventListener("input", filterVacancies);
+    // Simple Search Button (only searches by title or company)
+    searchButton.addEventListener("click", function () {
+        filterVacancies(false); // ❌ Do NOT apply salary/location filters for normal search
     });
+
+    // Advanced Search Filter Button (filters salary & location)
+    filterButton.addEventListener("click", function () {
+        filterVacancies(true); // ✅ Apply salary/location filters when filter button is clicked
+    });
+
+    // ✅ Toggle Advanced Search (Show/Hide Filters)
+    toggleAdvancedSearch.addEventListener("click", function () {
+        if (advancedSearchDiv.style.display === "none" || advancedSearchDiv.style.display === "") {
+            advancedSearchDiv.style.display = "block";
+            toggleAdvancedSearch.textContent = "🔽 დამალვა";
+        } else {
+            advancedSearchDiv.style.display = "none";
+            toggleAdvancedSearch.textContent = "🔍 დეტალური ძებნა";
+        }
+    });
+});

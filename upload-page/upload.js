@@ -1,64 +1,64 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("myForm");
 
+    if (!form) {
+        console.error("❌ Form not found in upload.html");
+        return;
+    }
+
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent page refresh
+        event.preventDefault();
 
-        let isValid = true;
+        const jobName = document.getElementById("jobName");
+        const name = document.getElementById("name");
+        const description = document.getElementById("description");
+        const salary = document.getElementById("salary");
+        const location = document.getElementById("location");
 
-        const jobName = document.getElementById("jobName").value.trim();
-        const name = document.getElementById("name").value.trim();
-        const number = document.getElementById("number").value.trim();
-        const description = document.getElementById("description").value.trim();
-        const salary = document.getElementById("salary").value.trim();
-
-        // Job Name Validation (Required)
-        if (jobName === "") {
-            alert("გთხოვთ შეიყვანოთ ვაკანსიის დასახელება.");
-            isValid = false;
+        if (!jobName || !name || !description || !salary || !location) {
+            console.error("❌ One or more form fields are missing in upload.html!");
+            return;
         }
 
-        // Name Validation (Only letters allowed)
-        const nameRegex = /^[ა-ჰa-zA-Z\s]+$/;
-        if (!nameRegex.test(name)) {
-            alert("კომპანიის სახელი უნდა შეიცავდეს მხოლოდ ასოებს.");
-            isValid = false;
+        const jobNameValue = jobName.value.trim();
+        const nameValue = name.value.trim();
+        const descriptionValue = description.value.trim();
+        const salaryValue = salary.value.trim();
+        const locationValue = location.value.trim();
+
+        // Validate Fields
+        if (!jobNameValue || !nameValue || !descriptionValue || !salaryValue || !locationValue) {
+            alert("❌ გთხოვთ შეავსოთ ყველა ველი სწორად!");
+            return;
         }
 
-        // Number Validation (Must be positive)
-        if (number === "" || isNaN(number) || Number(number) <= 0) {
-            alert("გთხოვთ შეიყვანოთ სწორი რაოდენობა (მინიმუმ 1).");
-            isValid = false;
+        // Validate Salary
+        const salaryAmount = parseFloat(salaryValue);
+        if (isNaN(salaryAmount) || salaryAmount <= 0) {
+            alert("❌ ხელფასი უნდა იყოს სწორი რიცხვი!");
+            return;
         }
 
-        // Description Validation (Required)
-        if (description.length < 10) {
-            alert("გთხოვთ შეიყვანოთ მინიმუმ 10 სიმბოლო ვაკანსიის აღწერისთვის.");
-            isValid = false;
-        }
+        let vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
 
-        // Salary Validation (Must be a positive number)
-        if (salary === "" || isNaN(salary) || Number(salary) <= 0) {
-            alert("გთხოვთ შეიყვანოთ სწორი ხელფასი (მინიმუმ 1).");
-            isValid = false;
-        }
+        const uploadDate = new Date();
+        const expirationDate = new Date(uploadDate);
+        expirationDate.setMonth(expirationDate.getMonth() + 1);
 
-        if (isValid) {
-            let vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
+        const newVacancy = {
+            jobName: jobNameValue,
+            name: nameValue,
+            description: descriptionValue,
+            salary: salaryAmount + " ₾",
+            location: locationValue,
+            uploadDate: uploadDate.toISOString().split("T")[0],
+            expirationDate: expirationDate.toISOString().split("T")[0]
+        };
 
-            const newVacancy = {
-                jobName: jobName,
-                name: name,
-                number: number,
-                description: description,
-                salary: salary // Save the salary
-            };
+        vacancies.push(newVacancy);
+        localStorage.setItem("vacancies", JSON.stringify(vacancies));
 
-            vacancies.push(newVacancy);
-            localStorage.setItem("vacancies", JSON.stringify(vacancies));
-
-            window.location.href = "../vacancies-page/vacancies.html";
-        }
+        alert("✅ ვაკანსია წარმატებით გამოქვეყნდა!");
+        window.location.href = "../vacancies-page/vacancies.html";
     });
-    
 });
